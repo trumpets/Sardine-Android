@@ -238,7 +238,7 @@ public class SardineImpl implements Sardine {
 		// return super.getRedirect(request, response, context);
 		// }
 		// });
-		this.client.addRequestInterceptor(preemptiveAuth, 0);
+		//this.client.addRequestInterceptor(preemptiveAuth, 0);
 		this.setCredentials(username, password);
 		log.warn("init");
 	}
@@ -397,7 +397,7 @@ public class SardineImpl implements Sardine {
 		Propfind body = new Propfind();
 		body.setAllprop(new Allprop());
 		// entity.setEntity(new StringEntity(SardineUtil.toXml(body), UTF_8));
-		entity.setEntity(new StringEntity("<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propfind xmlns:D=\"DAV:\">  <D:allprop/></D:propfind>", UTF_8));
+		entity.setEntity(new StringEntity("<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propfind xmlns:D=\"DAV:\"><D:prop><D:getetag/><D:getlastmodified/><D:getcontentlength/><D:creationdate/><D:resourcetype/></D:prop></D:propfind>", UTF_8));
 		Multistatus multistatus = this.execute(entity,
 				new MultiStatusResponseHandler());
 		List<Response> responses = multistatus.getResponse();
