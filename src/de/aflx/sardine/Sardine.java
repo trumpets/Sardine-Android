@@ -117,6 +117,11 @@ public interface Sardine
 	void put(String url, byte[] data) throws IOException;
 
 	/**
+     * put byte[] with header
+     */
+    public void putWithHeader( String url, byte[] data, Map<String, String> headers ) throws IOException;
+
+	/**
 	 * Uses <code>PUT</code> to send data to a server. Not repeatable on authentication failure.
 	 *
 	 * @param url		Path to the resource including protocol and hostname

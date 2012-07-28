@@ -625,6 +625,15 @@ public class SardineImpl implements Sardine {
 	}
 
 	/**
+     * put byte[] with header
+     */
+    public void putWithHeader( String url, byte[] data, Map<String, String> headers ) throws IOException
+    {
+        ByteArrayEntity entity = new ByteArrayEntity(data);
+        this.put(url, entity, headers);
+    }
+
+    /**
 	 * Upload the entity using <code>PUT</code>
 	 * 
 	 * @param url
